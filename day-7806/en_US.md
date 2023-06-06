@@ -48,6 +48,7 @@ sRM9V9I+hCzX4iKeS31XCm7z
 - ~~One day we have to turn off this annoying ACPI power button.
   On Arch, and by extension Asahi, accidentially pressing it
   will immediately shutdown the system.~~
+- Write an article about why fruit is a scam.
 
 This post contains an *encrypted* message.
 
