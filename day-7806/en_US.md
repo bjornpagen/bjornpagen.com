@@ -18,32 +18,36 @@ Plan is to stay indoors and work:
   instantly campaign with automated scraping of marketing
   agencies. We'll probably focus on an eCommerce niche.
 
+```pgp
+-----BEGIN PGP MESSAGE-----
+
+hQIMAwBlwr2rqfDCAQ/+OQPKji/MklVWapt1C6ECmJ/1bXqnXJZ03fCKXyYXqhpV
+Oqk3rAH4H0/y5yscI7h/G/v1JgJSoRIsZAWMyYxbDV3DKnoLOisB0bKg1gxiFXp7
+mM7Q2cBPWCrI1ARb10PaOZUSzlKWP55eHlx//nevDmQZPsfizogwKw5Lv3gsxYl9
+kbXEpjN+8z3pkJ6Xk/pOS3k1YHECuZSHgzVb/p0ZLIMC/5JKeN4ChlfEWHmzhBp8
+HQIJdUh22/VWqrOzdrMLDzkkIpOQm4VAhtkoPs6bXMZoPVo4hamVE9d5KU1W9VUZ
+ZL53yFnZn8DD95SZetpm/pooWzV9zd33pavPBaq/nMjmXzN2Sr+dbGo0T/hfgEFl
+3y/MbNRlUvicAh9mhzNMUQCUmS214SMhrwoVu6GIZuLrsIBrdArIX0v2XOK8aLyj
+G6FZBYXuhCjYLIIUFp2SE+35GKLQ+zYEf2pH00enU+i++AlI5YFVmfobp8KqghMO
+e5ZQm1tz3H62vzC+3QxWEHvVMV6si5TcXser1P2SFo2ndpgqlSLL33SmHzlRkhS+
+tr0SYJN9MQ9boQBl7bRXI/Jtqwz/7PeQQDX/GlDJOz+GTyNN3EgG8LD0ST/UFwKG
+78Myt7PoMasGHTBIIZcK3mdTU0QodsO8U+5xWTtcxxG6BmXbVkXrYx3uS2FmGKHS
+wHABuSJc9CoFNzOAZJcj8KcPx1BmHlrXQAa7xFuAyu7DWJHasvg+4eB1d9NO9YoW
+EMo6BUKLrpg1rr1iebeiUNWJqxlwH8k3E+nePUZpU007o+wnugbPrkCcQCzCNuJX
+SBFmO1k6UAJXPgigqA2LcBJUxPsxArGMa3FKqsAd9yFbUpOavTm9lZ0pMXUm+rGR
+lCcxi5s/IRGq6wiXKkYWnrZOJ/+yK/ksHAulOs9ZUNsbwCweTneI2TADtdDBAyC3
+GzxWeGUjC44wfijTYUy2L7TZSHPP1FPJdPPLGUjkMFCg4GrcQ8SiJGhJa2af4pI2
+I6VA4ycVIkMD143pRGqkyrZ6JG4AS32IqoSfkg4uCilGsSawamx7fwNzZyHlWiBI
+sRM9V9I+hCzX4iKeS31XCm7z
+=I3wJ
+-----END PGP MESSAGE-----
+```
+
 ## Reminders
 
 - One day we have to turn off this annoying ACPI power button.
   On Arch, and by extension Asahi, accidentially pressing it
   will immediately shutdown the system.
-
-```pgp
------BEGIN PGP MESSAGE-----
-
-hQIMAwBlwr2rqfDCAQ//UvL8rODzcGZfmwhoP+lG2eI2fWawIl9Pf7k7nJ5qaBwF
-ttqqibX02Eob6yg2duiehhC3pgk5sQISFCYIS1vBoLwtULphfA75byOT71zeYzpG
-2sn8qZT9xqW89e91/5n3v+LqdjhXo2Zy0uyTD6iaVWAXzdcm8fhfuLws2VkV7+g7
-Jb+VoZ0dbsuglWsCivwqrFnfLcDZFER/hndz087KMSx442BS1sg+zCUSKp4kvEyg
-azec5shCfEERl6XTR3IGxVTAQ2y0t/uw+GyLDsTS6/K2+S1zQ+EPvrL+sqPjspg8
-SluzFGATRlojtwfnDesB7y+GsBHr1xAfsw22jofw6NrhM0CZ0xtRbHUyXXK4cDt5
-fTd0pbLvnJVzU4ejqoLZSCw2fXPeFsyWz2wrEBzgUEPB706EszHtd+8dZ6/6LOJL
-lP8W4SFclxnBPCv99zoGi5YcUwitrUleYgxA/3n2ylSsiK6/mLpBz01ukxqWBJQU
-s7ryn9NgFnKzi2uqwEpugmX/b7AaoKqM7FuVzMGC3GoAT7iEo9yUurAK0kZJASaR
-zUup/9AqcGpOGWJxKGvpi9E3HzcnQ+pa23k3mrFDRWCjwJFjTNSrQ+Yw4JsuU2+R
-zXyyom04JWxqp6yGeSOHffHrw6RL4XENZMMTvFf5XrnBA/oLrmgCTzA/BNQF5HjS
-bgHxEA+MRLoGS+SBjNdYW1wp3brfp/8fHI1ZOFWJsvwmp3odGeuXho9mj3jB8BTq
-hnZFp/44MwpswFwbZpWoY8D9t2h5rxtRsMka3JXc4QgsSK8j8pyIQ7dgQJ1/QBCG
-reftACezmgVikF2D0N9O
-=AaIT
------END PGP MESSAGE-----
-```
 
 This post contains an *encrypted* message.
 
