@@ -59,5 +59,5 @@ today.
 
 # Tidbits
 
-- Found (this cool site)[https://effectindex.com/] on Hacker News
+- Found [this cool site](https://effectindex.com) on Hacker News
   about psychedelics.
