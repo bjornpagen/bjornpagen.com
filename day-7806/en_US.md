@@ -35,3 +35,7 @@ reftACezmgVikF2D0N9O
 ```
 
 This post contains an encrypted message.
+
+Yesterday I wrote [[hello world]] but I had to recommit
+the article today, so that's why it says it was created
+today.
