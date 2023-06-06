@@ -4,7 +4,7 @@ Plan is to stay indoors and work:
 ## TODO
 
 - Get [bjorn.llc](https://bjorn.llc) setup on Google Ads.
-- Setup analytics for [bjornpagen.com](https://bjornpagen.com)
+- ~~Setup analytics for [bjornpagen.com](https://bjornpagen.com)~~
 - ~~Figure out some way to do inline encryption. I can hide stuff I don't want on the open internet. Better
     to keep all my writing in one repo, since context
     switching is bad.~~
