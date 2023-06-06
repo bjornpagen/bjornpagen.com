@@ -56,3 +56,8 @@ This post contains an *encrypted* message.
 Yesterday I wrote [[hello world]] but I had to recommit
 the article today, so that's why it says it was created
 today.
+
+# Tidbits
+
+- Found (this cool site)[https://effectindex.com/] on Hacker News
+  about psychedelics.
