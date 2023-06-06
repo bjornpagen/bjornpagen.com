@@ -3,15 +3,26 @@ Plan is to stay indoors and work:
 
 ## TODO
 
-- Get [bjorn.llc](https://bjorn.llc) setup on Google Ads.
+- ~~Get [bjorn.llc](https://bjorn.llc) setup on Google Ads.~~
+  - Now we just have to wait for the ads to get approved.
 - ~~Setup analytics for [bjornpagen.com](https://bjornpagen.com)~~
-- ~~Figure out some way to do inline encryption. I can hide stuff I don't want on the open internet. Better
-    to keep all my writing in one repo, since context
-    switching is bad.~~
+- ~~Figure out some way to do inline encryption. I can hide stuff
+    I don't want on the open internet. Better to keep all my
+    writing in one repo, since context switching is bad.~~
   - I ended up embedding a PGP message in a code block,
     using CSS to hide it. What's cool is that I can use
     my editor's *pipe* functionality to create it directly
     when I'm writing a document.
+- Setup outbound Cold Email funnel to get more leads for
+  (bjorn.llc)[https://bjorn.llc]. I imagine this involves an
+  instantly campaign with automated scraping of marketing
+  agencies. We'll probably focus on an eCommerce niche.
+
+## Reminders
+
+- One day we have to turn off this annoying ACPI power button.
+  On Arch, and by extension Asahi, accidentially pressing it
+  will immediately shutdown the system.
 
 ```pgp
 -----BEGIN PGP MESSAGE-----
