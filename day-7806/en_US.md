@@ -14,7 +14,7 @@ Plan is to stay indoors and work:
     my editor's *pipe* functionality to create it directly
     when I'm writing a document.
 - Setup outbound Cold Email funnel to get more leads for
-  (bjorn.llc)[https://bjorn.llc]. I imagine this involves an
+  [bjorn.llc](https://bjorn.llc). I imagine this involves an
   instantly campaign with automated scraping of marketing
   agencies. We'll probably focus on an eCommerce niche.
 
