@@ -49,6 +49,7 @@ sRM9V9I+hCzX4iKeS31XCm7z
   On Arch, and by extension Asahi, accidentially pressing it
   will immediately shutdown the system.~~
 - Write an article about why fruit is a scam.
+- Write an article about truffle pigs.
 
 This post contains an *encrypted* message.
 
