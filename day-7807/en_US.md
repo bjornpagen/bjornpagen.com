@@ -1,7 +1,7 @@
 Shanghai: Woke up to some rain today, heard air in NY is shit.
 
 Imported my old [[workout]] from my previous notes. Did
-[workout a](workout#workout-a).
+[workout a](workout.html#workout-a).
 
 ```pgp
 -----BEGIN PGP MESSAGE-----
