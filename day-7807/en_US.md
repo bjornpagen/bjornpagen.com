@@ -36,7 +36,7 @@ JKdGrgfe7DWCkAZle6yeGJBmOAqcIri0+f2vyJ1sSthID+3XuBPo6gbUy79HbKmO
   - Wireframe out the whole agency site along with routes.
   - Write out the copy for the entire wireframe.
   - Mockup the entire site in Figma, finally implementing styles.
-  - Implement the whole site SvelteKit.
+  - Implement the whole site in SolidStart.
 
 ## Ideas for a secure Linux Desktop
 
