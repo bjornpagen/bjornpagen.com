@@ -31,7 +31,7 @@ JKdGrgfe7DWCkAZle6yeGJBmOAqcIri0+f2vyJ1sSthID+3XuBPo6gbUy79HbKmO
 - Single user system
 - Stateless configuration (a la Clear Linux)
 - Read only rootfs by default
-- Managed user state in containers
+- Managed application state/cache in containers
 - Mandatory Access Controls
 - Uses s6 for init, uses the single user to it's advantage
   by scheduling every single program on the system via s6
