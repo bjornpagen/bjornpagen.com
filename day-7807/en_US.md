@@ -24,6 +24,20 @@ JKdGrgfe7DWCkAZle6yeGJBmOAqcIri0+f2vyJ1sSthID+3XuBPo6gbUy79HbKmO
 -----END PGP MESSAGE-----
 ```
 
+## TODO
+
+- Send out 10 emails relating to [bjorn.llc](https://bjorn.llc).
+  We can collect the leads via Linkedin or Google. Best to start
+  manually, we can automate this process once we know what we're
+  doing.
+  - We can offer to do stuff for free to start, charge on a
+    purely performance based pricing model later.
+- Design a new agency website template.
+  - Wireframe out the whole agency site along with routes.
+  - Write out the copy for the entire wireframe.
+  - Mockup the entire site in Figma, finally implementing styles.
+  - Implement the whole site SvelteKit.
+
 ## Ideas for a secure Linux Desktop
 
 - Don't need to port full ChromeOS, we just need proper sandboxing
