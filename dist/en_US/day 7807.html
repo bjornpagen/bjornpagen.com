@@ -73,20 +73,6 @@ purely performance based pricing model later.</li>
 </ul>
 </li>
 </ul>
-<h2 id="ideas-for-a-secure-linux-desktop">Ideas for a secure Linux Desktop</h2>
-<ul>
-<li>Don&rsquo;t need to port full ChromeOS, we just need proper sandboxing
-for Chrome and system daemons (minijail, cgroups, etc&hellip;)</li>
-<li>Single user system</li>
-<li>Stateless configuration (a la Clear Linux)</li>
-<li>Read only rootfs by default</li>
-<li>Managed application state/cache in containers</li>
-<li>Mandatory Access Controls</li>
-<li>Uses s6 for init, uses the single user to it&rsquo;s advantage
-by scheduling every single program on the system via s6</li>
-<li>NixOS style filesystem namespacing</li>
-<li>Probably built off of Alpine linux to start</li>
-</ul>
 
     </article>
     <sig><a href="index.html">Bjorn Pagen</a></sig>
