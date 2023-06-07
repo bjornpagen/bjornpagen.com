@@ -53,6 +53,19 @@ JKdGrgfe7DWCkAZle6yeGJBmOAqcIri0+f2vyJ1sSthID+3XuBPo6gbUy79HbKmO
 =Iv+5
 -----END PGP MESSAGE-----
 </code></pre>
+<h2 id="ideas-for-a-secure-linux-desktop">Ideas for a secure Linux Desktop</h2>
+<ul>
+<li>Don&rsquo;t need to port full ChromeOS, we just need proper sandboxing
+for Chrome and system daemons (minijail, cgroups, etc&hellip;)</li>
+<li>Single user system</li>
+<li>Stateless configuration (a la Clear Linux)</li>
+<li>Read only rootfs by default</li>
+<li>Managed user state in containers</li>
+<li>Mandatory Access Controls</li>
+<li>Uses s6 for init, uses the single user to it&rsquo;s advantage
+by scheduling every single program on the system via s6</li>
+<li>NixOS style package namespacing</li>
+</ul>
 
     </article>
     <sig><a href="index.html">Bjorn Pagen</a></sig>
