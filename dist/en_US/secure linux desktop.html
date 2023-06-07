@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="../public/tailwind.css" charset="utf-8">
+  <link rel="stylesheet" href="../public/post.css" charset="utf-8">
+  <title>secure linux desktop - Bjorn Pagen</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RPHJQQDZY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RPHJQQDZY');
+  </script>
+</head>
+
+<body class="body-text_plex-serif">
+  <main>
+    <header>
+      <time datetime="2023-06-07 09:23:25Z">
+        June 7 2023
+      </time>
+      <topic>
+        secure linux desktop
+      </topic>
+    </header>
+    <article>
+      <h2 id="ideas-for-a-secure-linux-desktop">Ideas for a secure Linux Desktop</h2>
+<ul>
+<li>Don&rsquo;t need to port full ChromeOS, we just need proper sandboxing
+for Chrome and system daemons (minijail, cgroups, etc&hellip;)</li>
+<li>Single user system</li>
+<li>Stateless configuration (a la Clear Linux)</li>
+<li>Read only rootfs by default</li>
+<li>Managed application state/cache in containers</li>
+<li>Mandatory Access Controls</li>
+<li>Uses s6 for init, uses the single user to it&rsquo;s advantage
+by scheduling every single program on the system via s6</li>
+<li>NixOS style filesystem namespacing</li>
+<li>Probably built off of Alpine linux to start</li>
+</ul>
+
+    </article>
+    <sig><a href="index.html">Bjorn Pagen</a></sig>
+  </main>
+</body>
+
+</html>
