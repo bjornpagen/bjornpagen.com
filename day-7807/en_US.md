@@ -35,4 +35,5 @@ JKdGrgfe7DWCkAZle6yeGJBmOAqcIri0+f2vyJ1sSthID+3XuBPo6gbUy79HbKmO
 - Mandatory Access Controls
 - Uses s6 for init, uses the single user to it's advantage
   by scheduling every single program on the system via s6
-- NixOS style package namespacing
+- NixOS style filesystem namespacing
+- Probably built off of Alpine linux to start
