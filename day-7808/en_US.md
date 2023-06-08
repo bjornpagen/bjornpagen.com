@@ -1,6 +1,6 @@
 ## TODO
 
-- Prepare for call with [reachdesk](https://reachdesk.com/)
+- ~~Prepare for call with [reachdesk](https://reachdesk.com/)~~
 
 ```pgp
 -----BEGIN PGP MESSAGE-----
