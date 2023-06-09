@@ -22,3 +22,24 @@ SlOSRMrmYkOo+/gT5L9xPIbjrizc3EPb+ta36y3vpHZs7KCkofgGhF1WsnkisQ/G
 =y5b6
 -----END PGP MESSAGE-----
 ```
+
+## Tech Recruiting
+
+I've been exploring the idea of a tech recruiting agency that sources
+from China and get's them in positions at venture funded US startups.
+
+It sounds like a pretty cool idea, speaking with a friend of a friend
+soon to explore what such a company would look like. If it goes well,
+I'll start to speak to more people in my network about it.
+
+## On Sales
+
+A recruiter told me yesterday that I'm not a salesperson. He told me I
+should apply for PM positions instead. I don't know if that's an insult,
+but I'm sure he means well!
+
+## College
+
+Seriously considering attending Tsinghua for undergrad soon, probably
+means a lot of Chinese cramming, learning all the charecters, etc. Means
+learning Chinese is suddenly is a huge priority for me.
