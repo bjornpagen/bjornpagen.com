@@ -47,3 +47,18 @@ but I'm sure he means well!
 Seriously considering attending Tsinghua for undergrad soon, probably
 means a lot of Chinese cramming, learning all the charecters, etc. Means
 learning Chinese is suddenly is a huge priority for me.
+
+## Focus
+
+Frontend or Backend? Pros and cons.
+
+Frontend pairs with marketing skills quite well.
+
+Backend forces you to work for someone else.
+
+Is a performance-aware JS programmer more valuable
+than a performance aware C++ dev?
+
+Of course he is, the former is *much* rarer.
+
+So, that's what we're gonna do.
