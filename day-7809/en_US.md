@@ -1,6 +1,6 @@
 ## TODO
 
-- ~~Do [workout a][workout.html#workout-a]~~
+- ~~Do [workout a](workout.html#workout-a)~~
 - 4 hours of hardcore Chinese
 
 ```pgp
