@@ -2,6 +2,7 @@
 
 - ~~Do [workout b](workout.html#workout-b)~~
 - 4 hours of hardcore Chinese
+- Spend 2 hours reading about Google Ads
 
 ```pgp
 -----BEGIN PGP MESSAGE-----
