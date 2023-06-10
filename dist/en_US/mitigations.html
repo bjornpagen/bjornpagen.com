@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="../public/tailwind.css" charset="utf-8">
+  <link rel="stylesheet" href="../public/post.css" charset="utf-8">
+  <title>mitigations - Bjorn Pagen</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RPHJQQDZY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RPHJQQDZY');
+  </script>
+</head>
+
+<body class="body-text_plex-serif">
+  <main>
+    <header>
+      <time datetime="2023-06-10 01:31:47Z">
+        June 10 2023
+      </time>
+      <topic>
+        mitigations
+      </topic>
+    </header>
+    <article>
+      <h1 id="chromeos">ChromeOS</h1>
+<h2 id="core-principle---sandboxing">Core principle - sandboxing</h2>
+<p>This is done via Mandatory Access Controls, control group device filtering,
+chrooting, process namespacing. This is done across the whole operating system.</p>
+<p>Toolchain hardening such as NX, ASLR, stack cookies&hellip;</p>
+<p>State free, read-only root partition (makes persistence very difficult).
+User home directories are noexec, nosuid, no device nodes.</p>
+<p>Boot security ensures boot integrity, makes sure that no one can comprimise your device
+with physical access. This is probably the most important. If anything is changed, the
+changes will be detected and the user will know their system has been tampered with.</p>
+<p>Secure autoupdate, signed updates sent over SSL, version numbers cannot go backwards,
+must be signed by Google&rsquo;s key.</p>
+<p>No root, although everyone knows root is bad, the Linux desktop heavily relies on root
+for really basic operations.</p>
+<p>Secure DNS.</p>
+
+    </article>
+    <sig><a href="index.html">Bjorn Pagen</a></sig>
+  </main>
+</body>
+
+</html>
