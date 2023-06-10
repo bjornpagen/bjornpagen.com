@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="../public/tailwind.css" charset="utf-8">
+  <link rel="stylesheet" href="../public/post.css" charset="utf-8">
+  <title>desktop linux is insecure - Bjorn Pagen</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RPHJQQDZY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RPHJQQDZY');
+  </script>
+</head>
+
+<body class="body-text_plex-serif">
+  <main>
+    <header>
+      <time datetime="2023-06-10 03:48:59Z">
+        June 10 2023
+      </time>
+      <topic>
+        desktop linux is insecure
+      </topic>
+    </header>
+    <article>
+      <p>Desktop Linux distributions, including Debian, Fedora,
+Ubuntu, Arch, Gentoo, all suffer from a complete neglect
+of basic security principles.</p>
+<p>This is totally heterodox to the average Linux enthusiast
+dogma. <em>Everyone knows</em> that Windows is insecure, right?
+Linux is Open Source, everyone can look at the code and
+fix bugs, right?</p>
+<h2 id="on-security">On Security</h2>
+<p>Really, exploits are just programs written to take
+advantage of a bug. To minimize exploits, we minimize bugs.</p>
+<p>Software bugs come from complexity. The software stacks
+that make up our software necessarily come with layers
+upon layers of complexity: they solve <em>hard</em> problems,
+and require a lot of code to do so. TCP and SSL, for
+instance, are highly complex protocols that require
+a team effort of engineers to implement correctly.</p>
+<p>It is rather reasonable to expect that all our software
+will have bugs. The dream of formally verifying everything
+that a simple HTTP server runs on is a pipe dream, mostly
+because formal verification is slow and costly.</p>
+<p>It&rsquo;s no suprise that the server world has, with containers
+and deployment frameworks like Kubernetes, totally embraced
+the concept of a <strong>sandbox</strong>. The logic goes&mdash;if we can&rsquo;t
+ensure our software is secure, we will seperate it and
+quarantine it&rsquo;s side effects from the rest of the system.</p>
+<h2 id="app-level-sandboxing">App level sandboxing</h2>
+<p>Let&rsquo;s take an example of Chrome&rsquo;s browser. The GUI,
+HTML renderer, V8 JavaScript engine, browser extensions&mdash;all
+these parts of Chrome individually are heaping behemoths
+of code. So, all these components are seperated and live in
+different operating system processes, and can only speak
+to each other via an IPC mechanism.</p>
+<p>This way, a rogue website isn&rsquo;t able to access your home
+directory, since only the GUI part of Chrome has access.
+The GUI (officially called the <code>Browser</code> process), is the
+only part that has access to your home directory. So, the Renderer
+is &ldquo;Sandboxed&rdquo;.</p>
+<p>This doesn&rsquo;t mean you&rsquo;re totally safe though. No sandbox is perfect,
+and all it takes is a bug in the seperation mechanism for infected code to <em>escape</em>
+into the rest of the system. If the attacker has figured out how
+to exploit the HTML Renderer, they can try to use the IPC mechanism
+to exploit the GUI. This is called an exploit <strong>chain</strong>.</p>
+<p>This is super common, and all modern exploits involve long chains
+of exploits, one after another. You can read about an Android full
+exploit chain that mimics the above scenario <a href="https://github.blog/2021-03-24-real-world-exploit-chains-explained/">almost exactly</a>.</p>
+<h2 id="game-over">Game over</h2>
+<p>In the case that a Renderer exploit and GUI exploit are chained
+together, you know have a rogue process that can do whatever
+it likes as your user. This is game over.</p>
+<p>It can install a keylogger,
+record your screen, open a root shell, and quietly listen for you
+to type in your root password.</p>
+<p>At this point, the attacker can even proceed to exploit the kernel,
+hack into the firmware, and brick your device, or install a permanent
+backdoor onto the device.</p>
+<p>At least, this is what it was like 10 years ago. To prevent exploitation from being so easy, most modern desktop operating systems
+implement their <em>own</em> sandbox, and seperate the entire Chrome
+app from the rest of the system. This way, extra effort is needed to prevent
+a doomsday scenario.</p>
+<h2 id="proper-sandboxing">Proper Sandboxing</h2>
+<p>A modern &ldquo;Linux distribution&rdquo; that actually does sandboxing
+incredibly well is ChromeOS. There are a whole <a href="https://www.chromium.org/chromium-os/chromiumos-design-docs/system-hardening/">bible of strategies</a>
+that ChromeOS implements to keep Chrome in it&rsquo;s own little world.
+Among the strategies involve cgroups, namespacing, seccomp, etc&hellip;
+This technologies basically do what Docker does, but without the overhead
+of a virtualized Linux kernel. Chrome cannot see your files unless you give
+it explicit permission to do so, nor can it execute other programs, or wipe your hard drive.</p>
+<p>Not only is Chrome sandboxed&mdash;<em>every</em> important system process
+is sandboxed in ChromeOS. The system logger, the display server, the
+wifi daemon&hellip; A lot of architecting has gone into minimizing the
+attack surface of these various services by giving them the least
+amount of privilege possible to do their job. This is the
+<strong>principle of least privilege</strong>.</p>
+<p>Each process has it&rsquo;s view of the filestystem stripped away to the
+bare minimum it needs to execute. It cannot make new network requests
+unless authorized. It cannot access Linux device nodes like <code>/dev/sda</code>.
+It cannot access other processes information, as it runs as PID 1 in
+it&rsquo;s own process tree. It can&rsquo;t even allocate more memory than allowed
+by the calling process.</p>
+<p>Of course sandboxing is <em>everything</em>, there are a ton of
+different <a href="mitigations.html">mitigations</a> and additional details. Mitigations
+are mostly useful for memory unsafe languages like C and C++,
+making it more difficult for an attacker to develop an exploit
+for any given bug.</p>
+<p>MacOS, OpenBSD, and even Windows have all made serious progress in sandboxing. ChromeOS
+has the best, simply because it is the newest, has been designed securely from the start, and doesn&rsquo;t allow unvirtualized user software.</p>
+<h2 id="improper-sandboxing">Improper Sandboxing</h2>
+<p>Remember the doomsday scenario I discussed above, where a rogue Chrome
+process can take over the whole system? From 10 years ago? The modern Linux
+desktop is still right here today.</p>
+<p>Here, we find every other desktop Linux distribution. Debian, Fedora,
+Ubuntu, Arch, Gentoo, have <em>zero</em> meaningful system level sandboxing.</p>
+<p>Generally what happens here, is that distros don&rsquo;t implement any sandboxing at all.
+They leave it up to the user to configure and put security policies in place,
+so by default, if you install <code>chromium</code>, you are getting <em>zero</em> additional
+sandboxing beyond the default Chromium settings. Contrary to ChromeOS,
+Chrome can see all your personal files <em>without</em> explicit permission to do so.</p>
+<p>It&rsquo;s not the maintainers&rsquo;s fault. Maintainers simply don&rsquo;t know
+enough about dependencies and what resources a service needs access too. Meanwhile, developers
+don&rsquo;t know the contexts in which their software is being run, and needs to release portable programs.
+Developers therefore can&rsquo;t assume what permissions their program will need with the rest of the system.</p>
+<p>Also, Linux desktop software has a very <em>all-or-nothing</em> approach to permissions.
+Root, or user. You want to install packages? <code>sudo apt</code>, <code>sudo dnf</code>, <code>sudo pacman</code> will serve you just right.
+There&rsquo;s really no reason why a system upgrade requires root privileges, especially for installing user software.
+<a href="https://nixos.org">NixOS</a> explores this concept, albeit with an utterly incomprehensible configuration format.</p>
+<p>Overuse of sudo really deteriorates the seperation between root and user,
+usually to zero, since it&rsquo;s not hard at all to install a keylogger, even
+<a href="https://github.com/Aishou/wayland-keylogger">on Wayland</a>.</p>
+<h2 id="potential-improvements">Potential improvements</h2>
+<p>Popular approaches to the Linux sandboxing problem are all lacking.</p>
+<p>Flatpak forgets about the problem of <em>system</em> sandboxing.
+Even if you use these technologies, the base distribution of software
+that makes up the core OS still is completely unsandboxed, and there are
+many criticisms against <a href="https://github.com/flatpak/flatpak/issues/4983">Flatpak</a>&rsquo;s
+viablility as a security container in the first place.</p>
+<p>Although I have no idea of the quality of implementation, systemd service
+files support a bunch of namespacing and sandboxing flags declaratively.
+No Linux distribution actually seriously uses them very much, and it
+certainly isn&rsquo;t as comprehensive as ChromeOS&rsquo;s <a href="https://github.com/google/minijail">minijail</a>.</p>
+<p>Firejail runs as root and has paved the way for <a href="https://www.cvedetails.com/cve/CVE-2019-12499/">privilege escalation bugs</a>.</p>
+<p>Pipewire was a good solution to the Linux audio problem that theoretically
+allows for better sandboxing via a capability oriented design. It helps
+pave the work for proper sandboxing to be possible in the future</p>
+<h2 id="new-distribution">New Distribution?</h2>
+<p>It&rsquo;s interesting to consider a Linux distribution that fixes these problems.
+I&rsquo;ve thought a little bit about a <a href="secure%20linux%20desktop.html">secure linux desktop</a>. But alas,
+what a waste of time that would be, right?</p>
+
+    </article>
+    <sig><a href="index.html">Bjorn Pagen</a></sig>
+  </main>
+</body>
+
+</html>
