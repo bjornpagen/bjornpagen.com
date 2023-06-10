@@ -95,8 +95,8 @@ Each process has it's view of the filestystem stripped away to the
 bare minimum it needs to execute. It cannot make new network requests
 unless authorized. It cannot access Linux device nodes like `/dev/sda`.
 It cannot access other processes information, as it runs as PID 1 in
-it's own process tree. It can't even allocate more memory than allowed
-by the calling process.
+it's own process tree. It can't even allocate more memory than it's allowed
+to.
 
 Of course sandboxing isn't *everything*---there are a ton of
 different [[mitigations]] and additional details. Mitigations

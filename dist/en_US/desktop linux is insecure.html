@@ -108,8 +108,8 @@ amount of privilege possible to do their job. This is the
 bare minimum it needs to execute. It cannot make new network requests
 unless authorized. It cannot access Linux device nodes like <code>/dev/sda</code>.
 It cannot access other processes information, as it runs as PID 1 in
-it&rsquo;s own process tree. It can&rsquo;t even allocate more memory than allowed
-by the calling process.</p>
+it&rsquo;s own process tree. It can&rsquo;t even allocate more memory than it&rsquo;s allowed
+to.</p>
 <p>Of course sandboxing isn&rsquo;t <em>everything</em>&mdash;there are a ton of
 different <a href="mitigations.html">mitigations</a> and additional details. Mitigations
 are mostly useful for memory unsafe languages like C and C++,
