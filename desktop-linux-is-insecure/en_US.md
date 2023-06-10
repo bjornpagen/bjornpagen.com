@@ -28,7 +28,7 @@ It's no suprise that the server world has, with containers
 and deployment frameworks like Kubernetes, totally embraced
 the concept of a **sandbox**. The logic goes---if we can't
 ensure our software is secure, we will separate it and
-quarantine it's side effects from the rest of the system.
+quarantine its side effects from the rest of the system.
 
 ## App level sandboxing
 
