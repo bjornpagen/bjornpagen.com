@@ -4,7 +4,7 @@ of basic security principles.
 
 This is totally heterodox to the average Linux enthusiast
 dogma. *Everyone knows* that Windows is insecure, right?
-Linux is Open Source, everyone can look at the code and
+Linux is open source™, everyone can look at the code and
 fix bugs, right?
 
 ## On Security
@@ -98,7 +98,7 @@ It cannot access other processes information, as it runs as PID 1 in
 it's own process tree. It can't even allocate more memory than allowed
 by the calling process.
 
-Of course sandboxing is *everything*, there are a ton of
+Of course sandboxing isn't *everything*---there are a ton of
 different [[mitigations]] and additional details. Mitigations
 are mostly useful for memory unsafe languages like C and C++,
 making it more difficult for an attacker to develop an exploit
