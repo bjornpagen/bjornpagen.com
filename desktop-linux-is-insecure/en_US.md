@@ -20,7 +20,7 @@ instance, are highly complex protocols that require
 a team effort of engineers to implement correctly.
 
 It is rather reasonable to expect that all our software
-will have bugs. The dream of formally verifying everything
+will have bugs. The idea of formally verifying everything
 is a pipe dream, mostly
 because formal verification is slow and costly.
 
