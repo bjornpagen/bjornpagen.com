@@ -21,7 +21,7 @@ a team effort of engineers to implement correctly.
 
 It is rather reasonable to expect that all our software
 will have bugs. The dream of formally verifying everything
-that a simple HTTP server runs on is a pipe dream, mostly
+is a pipe dream, mostly
 because formal verification is slow and costly.
 
 It's no suprise that the server world has, with containers
