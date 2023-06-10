@@ -80,8 +80,8 @@ A modern "Linux distribution" that actually does sandboxing
 incredibly well is ChromeOS. There are a whole [bible of strategies](https://www.chromium.org/chromium-os/chromiumos-design-docs/system-hardening/)
 that ChromeOS implements to keep Chrome in it's own little world.
 Among the strategies involve cgroups, namespacing, seccomp, etc...
-This technologies basically do what Docker does, but without the overhead
-of a virtualized Linux kernel. Chrome cannot see your files unless you give
+This technologies basically do what Docker does (corrected).
+Chrome cannot see your files unless you give
 it explicit permission to do so, nor can it execute other programs, or wipe your hard drive.
 
 Not only is Chrome sandboxed---*every* important system process
