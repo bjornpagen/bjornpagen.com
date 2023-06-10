@@ -123,7 +123,7 @@ sandboxing beyond the default Chromium settings. Contrary to ChromeOS,
 Chrome can see all your personal files *without* explicit permission to do so.
 
 It's not the maintainers's fault. Maintainers simply don't know
-enough about dependencies and what resources a service needs access too. Meanwhile, developers
+enough about dependencies and what resources a service needs access to. Meanwhile, developers
 don't know the contexts in which their software is being run, and needs to release portable programs.
 Developers therefore can't assume what permissions their program will need with the rest of the system.
 
