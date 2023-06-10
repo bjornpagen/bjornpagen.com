@@ -17,7 +17,37 @@ changes will be detected and the user will know their system has been tampered w
 Secure autoupdate, signed updates sent over SSL, version numbers cannot go backwards,
 must be signed by Google's key.
 
-No root, although everyone knows root is bad, the Linux desktop heavily relies on root
-for really basic operations.
-
 Secure DNS.
+
+Capability based architecture: processes are seperated using cgroups, seperate namespacing,
+capabilities instead of root, as well as mandatory access control. Principle of least privilege
+is extended across the entire OS. Every single system daemon is associated with a minijail command,
+like this for `syslog.conf`:
+
+```sh
+exec /sbin/minijail0 -l --uts -i -v -e -t -P /var/empty -T static \
+    -b / -b /dev,,1 -b /proc \
+    -k tmpfs,/run,tmpfs,0xe -b /run/systemd/journal,,1 \
+    -k tmpfs,/var,tmpfs,0xe -b /var/log,,1 -b /var/lib/timezone \
+    /usr/sbin/rsyslogd -n -f /etc/rsyslog.chromeos -i /tmp/rsyslogd.pid
+```
+
+Or like this for `wpa_supplicant.conf`:
+
+```sh
+script
+  ARGS=""
+  case ${WPA_DEBUG} in
+    excessive) ARGS='-ddd';;
+    msgdump)   ARGS='-dd';;
+    debug)     ARGS='-d';;
+    info)      ARGS='';;
+    warning)   ARGS='-q';;
+    error)     ARGS='-qq';;
+  esac
+  exec minijail0 -u wpa -g wpa -c 3000 -n -i -- \
+    /usr/sbin/wpa_supplicant -u -s ${ARGS} -O/run/wpa_supplicant
+end script
+```
+
+All these services integrate with SELinux.
