@@ -123,7 +123,7 @@ process can take over the whole system? From 10 years ago? The modern Linux
 desktop is still right here today.</p>
 <p>Here, we find every other desktop Linux distribution. Debian, Fedora,
 Ubuntu, Arch, Gentoo, have <em>zero</em> meaningful system level sandboxing.</p>
-<p>Generally what happens here, is that distros don&rsquo;t implement any sandboxing at all.
+<p>Generally what happens here, is that distros don&rsquo;t implement any sandboxing.
 They leave it up to the user to configure and put security policies in place,
 so by default, if you install <code>chromium</code>, you are getting <em>zero</em> additional
 sandboxing beyond the default Chromium settings. Contrary to ChromeOS,
@@ -137,7 +137,7 @@ Root, or user. You want to install packages? <code>sudo apt</code>, <code>sudo d
 There&rsquo;s really no reason why a system upgrade requires root privileges, especially for installing user software.
 <a href="https://nixos.org">NixOS</a> explores this concept, albeit with an utterly incomprehensible configuration format.</p>
 <p>Overuse of sudo really deteriorates the separation between root and user,
-usually to zero, since it&rsquo;s not hard at all to install a keylogger, even
+usually to zero, since it&rsquo;s not hard to install a keylogger, even
 <a href="https://github.com/Aishou/wayland-keylogger">on Wayland</a>.</p>
 <h2 id="potential-improvements">Potential improvements</h2>
 <p>Popular approaches to the Linux sandboxing problem are all lacking.</p>

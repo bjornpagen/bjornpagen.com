@@ -116,7 +116,7 @@ desktop is still right here today.
 Here, we find every other desktop Linux distribution. Debian, Fedora,
 Ubuntu, Arch, Gentoo, have *zero* meaningful system level sandboxing.
 
-Generally what happens here, is that distros don't implement any sandboxing at all.
+Generally what happens here, is that distros don't implement any sandboxing.
 They leave it up to the user to configure and put security policies in place,
 so by default, if you install `chromium`, you are getting *zero* additional
 sandboxing beyond the default Chromium settings. Contrary to ChromeOS,
@@ -133,7 +133,7 @@ There's really no reason why a system upgrade requires root privileges, especial
 [NixOS](https://nixos.org) explores this concept, albeit with an utterly incomprehensible configuration format.
 
 Overuse of sudo really deteriorates the separation between root and user,
-usually to zero, since it's not hard at all to install a keylogger, even
+usually to zero, since it's not hard to install a keylogger, even
 [on Wayland](https://github.com/Aishou/wayland-keylogger).
 
 ## Potential improvements
