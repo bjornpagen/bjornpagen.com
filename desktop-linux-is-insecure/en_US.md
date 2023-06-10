@@ -27,7 +27,7 @@ because formal verification is slow and costly.
 It's no suprise that the server world has, with containers
 and deployment frameworks like Kubernetes, totally embraced
 the concept of a **sandbox**. The logic goes---if we can't
-ensure our software is secure, we will seperate it and
+ensure our software is secure, we will separate it and
 quarantine it's side effects from the rest of the system.
 
 ## App level sandboxing
@@ -35,7 +35,7 @@ quarantine it's side effects from the rest of the system.
 Let's take an example of Chrome's browser. The GUI,
 HTML renderer, V8 JavaScript engine, browser extensions---all
 these parts of Chrome individually are heaping behemoths
-of code. So, all these components are seperated and live in
+of code. So, all these components are separated and live in
 different operating system processes, and can only speak
 to each other via an IPC mechanism.
 
@@ -46,7 +46,7 @@ only part that has access to your home directory. So, the Renderer
 is "Sandboxed".
 
 This doesn't mean you're totally safe though. No sandbox is perfect,
-and all it takes is a bug in the seperation mechanism for infected code to *escape*
+and all it takes is a bug in the separation mechanism for infected code to *escape*
 into the rest of the system. If the attacker has figured out how
 to exploit the HTML Renderer, they can try to use the IPC mechanism
 to exploit the GUI. This is called an exploit **chain**.
@@ -70,7 +70,7 @@ hack into the firmware, and brick your device, or install a permanent
 backdoor onto the device.
 
 At least, this is what it was like 10 years ago. To prevent exploitation from being so easy, most modern desktop operating systems
-implement their *own* sandbox, and seperate the entire Chrome
+implement their *own* sandbox, and separate the entire Chrome
 app from the rest of the system. This way, extra effort is needed to prevent
 a doomsday scenario.
 
@@ -132,7 +132,7 @@ Root, or user. You want to install packages? `sudo apt`, `sudo dnf`, `sudo pacma
 There's really no reason why a system upgrade requires root privileges, especially for installing user software.
 [NixOS](https://nixos.org) explores this concept, albeit with an utterly incomprehensible configuration format.
 
-Overuse of sudo really deteriorates the seperation between root and user,
+Overuse of sudo really deteriorates the separation between root and user,
 usually to zero, since it's not hard at all to install a keylogger, even
 [on Wayland](https://github.com/Aishou/wayland-keylogger).
 

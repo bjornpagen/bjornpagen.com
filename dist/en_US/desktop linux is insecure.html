@@ -54,13 +54,13 @@ because formal verification is slow and costly.</p>
 <p>It&rsquo;s no suprise that the server world has, with containers
 and deployment frameworks like Kubernetes, totally embraced
 the concept of a <strong>sandbox</strong>. The logic goes&mdash;if we can&rsquo;t
-ensure our software is secure, we will seperate it and
+ensure our software is secure, we will separate it and
 quarantine it&rsquo;s side effects from the rest of the system.</p>
 <h2 id="app-level-sandboxing">App level sandboxing</h2>
 <p>Let&rsquo;s take an example of Chrome&rsquo;s browser. The GUI,
 HTML renderer, V8 JavaScript engine, browser extensions&mdash;all
 these parts of Chrome individually are heaping behemoths
-of code. So, all these components are seperated and live in
+of code. So, all these components are separated and live in
 different operating system processes, and can only speak
 to each other via an IPC mechanism.</p>
 <p>This way, a rogue website isn&rsquo;t able to access your home
@@ -69,7 +69,7 @@ The GUI (officially called the <code>Browser</code> process), is the
 only part that has access to your home directory. So, the Renderer
 is &ldquo;Sandboxed&rdquo;.</p>
 <p>This doesn&rsquo;t mean you&rsquo;re totally safe though. No sandbox is perfect,
-and all it takes is a bug in the seperation mechanism for infected code to <em>escape</em>
+and all it takes is a bug in the separation mechanism for infected code to <em>escape</em>
 into the rest of the system. If the attacker has figured out how
 to exploit the HTML Renderer, they can try to use the IPC mechanism
 to exploit the GUI. This is called an exploit <strong>chain</strong>.</p>
@@ -87,7 +87,7 @@ to type in your root password.</p>
 hack into the firmware, and brick your device, or install a permanent
 backdoor onto the device.</p>
 <p>At least, this is what it was like 10 years ago. To prevent exploitation from being so easy, most modern desktop operating systems
-implement their <em>own</em> sandbox, and seperate the entire Chrome
+implement their <em>own</em> sandbox, and separate the entire Chrome
 app from the rest of the system. This way, extra effort is needed to prevent
 a doomsday scenario.</p>
 <h2 id="proper-sandboxing">Proper Sandboxing</h2>
@@ -136,7 +136,7 @@ Developers therefore can&rsquo;t assume what permissions their program will need
 Root, or user. You want to install packages? <code>sudo apt</code>, <code>sudo dnf</code>, <code>sudo pacman</code> will serve you just right.
 There&rsquo;s really no reason why a system upgrade requires root privileges, especially for installing user software.
 <a href="https://nixos.org">NixOS</a> explores this concept, albeit with an utterly incomprehensible configuration format.</p>
-<p>Overuse of sudo really deteriorates the seperation between root and user,
+<p>Overuse of sudo really deteriorates the separation between root and user,
 usually to zero, since it&rsquo;s not hard at all to install a keylogger, even
 <a href="https://github.com/Aishou/wayland-keylogger">on Wayland</a>.</p>
 <h2 id="potential-improvements">Potential improvements</h2>
