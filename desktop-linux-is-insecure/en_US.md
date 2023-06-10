@@ -71,7 +71,7 @@ backdoor onto the device.
 
 At least, this is what it was like 10 years ago. To prevent exploitation from being so easy, most modern desktop operating systems
 implement their *own* sandbox, and separate the entire Chrome
-app from the rest of the system. This way, extra effort is needed to prevent
+app from the rest of the system. This way, extra effort is needed to create
 a doomsday scenario.
 
 ## Proper Sandboxing
