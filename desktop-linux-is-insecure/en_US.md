@@ -58,7 +58,7 @@ exploit chain that mimics the above scenario [almost exactly](https://github.blo
 ## Game over
 
 In the case that a Renderer exploit and GUI exploit are chained
-together, you know have a rogue process that can do whatever
+together, you now have a rogue process that can do whatever
 it likes as your user. This is game over.
 
 It can install a keylogger,
