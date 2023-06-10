@@ -62,12 +62,12 @@ together, you know have a rogue process that can do whatever
 it likes as your user. This is game over.
 
 It can install a keylogger,
-record your screen, open a root shell, and quietly listen for you
-to type in your root password.
+record your screen, quietly listen for you
+to type in your root password, and pop a root shell.
 
 At this point, the attacker can even proceed to exploit the kernel,
 hack into the firmware, and brick your device, or install a permanent
-backdoor onto the device.
+backdoor.
 
 At least, this is what it was like 10 years ago. To prevent exploitation from being so easy, most modern desktop operating systems
 implement their *own* sandbox, and separate the entire Chrome
