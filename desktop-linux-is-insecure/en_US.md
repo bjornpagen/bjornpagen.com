@@ -155,7 +155,7 @@ Firejail runs as root and has paved the way for [privilege escalation bugs](http
 
 Pipewire was a good solution to the Linux audio problem that theoretically
 allows for better sandboxing via a capability oriented design. It helps
-pave the work for proper sandboxing to be possible in the future
+pave the work for proper sandboxing to be possible in the future.
 
 ## New Distribution?
 
