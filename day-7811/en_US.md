@@ -1,7 +1,6 @@
 ## TODO
 
-- Write Quick Tour of the V8 Runtime - How to make your JS faster
-- Write "An Interactive Introduction to QBE"
+- Write "An Interactive Introduction to Go Assembler"
 
 ```pgp
 -----BEGIN PGP MESSAGE-----
