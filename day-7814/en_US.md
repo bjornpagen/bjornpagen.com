@@ -1,15 +1,37 @@
 ## TODO
 
-- Research into Canonical heavily, understand business model.
-- Gain a deep understanding of Apple Silicon kernel-level stuff.
+- Research into Canonical heavily, understand business model
+- Gain a deep understanding of Apple Silicon kernel-level stuff
+  - Then, document some stuff in some articles
+
+```pgp
+-----BEGIN PGP MESSAGE-----
+
+hQIMAwBlwr2rqfDCAQ/7BOpUXZzMkWHew+ciNuQSYKfuWlTiVSIbDRzh6Tv9zQ4j
+isBAq4aNwnNZZGFJ7iTnna5dK3mVqHz1VTxXY04v3hB3dHISXT2ppK0XmbBRyCnH
+2AtfHxmRzyt8tLzxrEuQ5f0ZvZNNAEdga/vcZPT6UsbQRxa40GuiE0HVGtjkCKMy
+1pSF8QbkhwqQ5uJTMzg6eHKw418GsWXmiLzamhKF2bTc6WnMnOAReAQ7CcYdkA+y
+tE4J643bcsyhSHfiM2tJePwJKiopZsLCF2GMdWcsw/bCPvcwoLKf0q6+OoPxnC/E
+AmBzb1HULM5ZbAWU0ofPLBGIHoHHKA/bePncJ2QHHeN9pEaUJaUZyMB/nEDgwXOI
+J01bK3DziIjEiFLATBxxTQ65b/WQ85UmB/VcHUEJRMK52ZqUsd0373uWtwqZDMq1
+ssHWySy0RQDTeT/Rg22olX9OVLh2A9smR93/kxbwXkidX8nR6KE8duwcVfIp2L5Q
+5/ZW2M7D6Vc4fQQ5V7ZPFvoGrN44aEcvJvFyWnA+BadBPzq6Ga/nroolpSaGuUHU
+YtyUD183G7nn7wQ3LSFWI5qCZtBfjK0XftF2kFBQA/llpM2DVHkSgl2Lhvxt1U92
+1EnjkaRwb6qmRenOBz6f2FbDMUjim1qdvkEMJGynQoTTJYoaK40KPA+HL3b2XFTS
+YAHa4CRVtR9xt33GfRrJN6FvKCk85B5o+TTKCCC8n14oFyE0A4K6hvvELh1tzXbo
+/qcZCCVgNcNNydbz7tu46d3Q94DOGBaIVkibjLXfFThr/8eCDrhbT9f0Y/8UgHIY
+iQ==
+=ZX6x
+-----END PGP MESSAGE-----
+```
 
 ## Ongoing Projects
 
-- Caleb Jones JV leadgen.
+- Caleb Jones JV leadgen
 
 ## Possible Upcoming Projects
 
-- Peak Performance Printing healthcare leadgen.
+- Peak Performance Printing healthcare leadgen
 
 # Canonical
 
