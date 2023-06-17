@@ -68,8 +68,9 @@ Log work so far.
 	dev_dbg(cluster->dev, "set_rate: %ld -> %d\n", rate, level);
 ```
 
-`readq_poll_timeout` reads a quad (64 bits) from memory, and keeps trying until timeout.
-The table below demonstrates all the arguments of the macro.
+`readq_poll_timeout` keeps trying to read a quad (64 bits) from memory
+, until the operation times out. The table below demonstrates all the
+arguments of the macro.
 
 | arg | parameter | value |
 |-----|-----------|-------|

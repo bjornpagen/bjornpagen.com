@@ -77,8 +77,9 @@ hardware, like 0, 1, 2, etc&hellip;</p>
 <p>Log work so far.</p>
 <pre><code class="language-c">	dev_dbg(cluster-&gt;dev, &quot;set_rate: %ld -&gt; %d\n&quot;, rate, level);
 </code></pre>
-<p><code>readq_poll_timeout</code> reads a quad (64 bits) from memory, and keeps trying until timeout.
-The table below demonstrates all the arguments of the macro.</p>
+<p><code>readq_poll_timeout</code> keeps trying to read a quad (64 bits) from memory
+, until the operation times out. The table below demonstrates all the
+arguments of the macro.</p>
 <table>
 <thead>
 <tr>
