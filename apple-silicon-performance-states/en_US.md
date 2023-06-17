@@ -77,8 +77,8 @@ arguments of the macro.
 | 1 | `addr` | `cluster->reg_base + APPLE_CLUSTER_PSTATE` |
 | 2 | `val` | `reg` |
 | 3 | `cond` | `!(reg & APPLE_CLUSTER_PSTATE_BUSY)` |
-| 4 | `delay_us` | 2us |
-| 5 | `timeout_us` | `APPLE_CLUSTER_SWITCH_TIMEOUT` = 100us |
+| 4 | `delay_us` | 2μs |
+| 5 | `timeout_us` | `APPLE_CLUSTER_SWITCH_TIMEOUT` = 100μs |
 
 Now we read the hardware register associated with this cpu cluster and
 keep polling until it's no longer busy. Then, we read the value into `reg`
