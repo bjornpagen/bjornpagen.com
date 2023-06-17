@@ -31,75 +31,114 @@
       </topic>
     </header>
     <article>
-      <p>The Apple m1/m2 family of chips have built-in mechanisms
+      <p>The Apple M1/M2 family of chips have built-in mechanisms
 to dynamically scale their battery usage. Doing this allows
 Apple Silicon devices to have speed when you want it,
 with the ability to <em>slow things down</em> to benefit battery usage.</p>
 <p>Here are some of the built-in levers you can pull:</p>
 <h2 id="clock-speed-controller">Clock speed controller</h2>
+<p>The M2 chipset, my current laptop, has two clusters: a cluster of 4 efficiency cores, and
+a cluster of 4 performance cores. You can modify the frequency of both of these
+core clusters anytime!</p>
 <p>This allows the kernel to speed up and slow down the CPUs.
 You can change the cpu frequency from userpsace using tools
 like cpupower on Linux.</p>
 <p>I decided to dive into the code and exlore how it&rsquo;s implemented!
-Here&rsquo;s the important code from the Asahi Linux kernel to
-set the cpu frequency, with annotations:</p>
+Here&rsquo;s the low-level <a href="https://github.com/AsahiLinux/linux/blob/95c5e22cd2e75b624d78bb3504c2e489b0dd86c6/drivers/clk/clk-apple-cluster.c">code</a> from the Asahi Linux kernel to that
+directly sets the cpu frequency, with annotations. This code is called
+by higher level modules in the Linux kernel, like <code>cpufreq</code>, which I&rsquo;ll
+go over later.</p>
+<p>This function sets the clock rate of a cluster of <code>cpus</code>, which are
+more commonly known as <strong>cores</strong> outside of kernel-land.</p>
 <pre><code class="language-c">static int apple_cluster_clk_set_rate(struct clk_hw *hw, unsigned long rate,
 					 unsigned long parent_rate)
 {
-	// apple_cluster_clk is hardware specific, unlike clk_hw, a generic
-	// implementation for clock rate logic across all platforms
-	struct apple_cluster_clk *cluster = to_apple_cluster_clk(hw);
-
-	// an opp is an &quot;operating performance point&quot;, not an &quot;operation&quot;
-	// a list of supported frequencies/voltages is already in the kernel
-	// here we fetch the lowest opp &lt;= the user supplied clock rate
-	struct dev_pm_opp *opp;
+</code></pre>
+<p><code>apple_cluster_clk</code> is hardware specific, unlike <code>clk_hw</code>, a generic
+implementation for clock rate logic across all platforms.</p>
+<pre><code class="language-c">	struct apple_cluster_clk *cluster = to_apple_cluster_clk(hw);
+</code></pre>
+<p>An <code>opp</code> is an &ldquo;operating performance point&rdquo;, not an &ldquo;operation&rdquo;.
+A list of supported frequencies/voltages is already in the kernel.
+Here we fetch the lowest opp &lt;= the user supplied clock rate.</p>
+<pre><code class="language-c">	struct dev_pm_opp *opp;
 	opp = dev_pm_opp_find_freq_floor(cluster-&gt;dev, &amp;rate);
-
-	// return early if there's an error
-	if (IS_ERR(opp))
+</code></pre>
+<p>Return early if there&rsquo;s an error.</p>
+<pre><code class="language-c">	if (IS_ERR(opp))
 		return PTR_ERR(opp);
-
-	// the hardware doesn't understand linux internal data structures
-	// this translates the opp struct into an index understood by the
-	// hardware, like 0, 1, 2, etc... 
-	unsigned int level;
+</code></pre>
+<p>The hardware doesn&rsquo;t understand linux internal data structures
+this translates the opp struct into an index understood by the
+hardware, like 0, 1, 2, etc&hellip;</p>
+<pre><code class="language-c">	unsigned int level;
 	level = dev_pm_opp_get_level(opp);
-
-	// log work so far
-	dev_dbg(cluster-&gt;dev, &quot;set_rate: %ld -&gt; %d\n&quot;, rate, level);
-
-	// readq_poll_timeout reads a quad (64 bits) from memory, and keeps trying until timeout
-	// func sig: readq_poll_timeout(addr, val, cond, delay_us, timeout_us)
-	// addr = cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE
-	// val = reg
-	// cond = !(reg &amp; APPLE_CLUSTER_PSTATE_BUSY), ie cluster must not be busy, keep polling until it isn't
-	// delay_us = 2 microseconds
-	// timeout_us = APPLE_CLUSTER_SWITCH_TIMEOUT = 100 microseconds
-	//
-	// now we'll read the hardware register associated with this cpu cluster
-	// keep polling until it's no longer busy, and read the value into reg
-	// if it's still busy after 100us, return with an error
-	u64 reg;
+</code></pre>
+<p>Log work so far.</p>
+<pre><code class="language-c">	dev_dbg(cluster-&gt;dev, &quot;set_rate: %ld -&gt; %d\n&quot;, rate, level);
+</code></pre>
+<p><code>readq_poll_timeout</code> reads a quad (64 bits) from memory, and keeps trying until timeout.
+The table below demonstrates all the arguments of the macro.</p>
+<table>
+<thead>
+<tr>
+<th>arg</th>
+<th>parameter</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>addr</code></td>
+<td><code>cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>val</code></td>
+<td><code>reg</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>cond</code></td>
+<td><code>!(reg &amp; APPLE_CLUSTER_PSTATE_BUSY)</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>delay_us</code></td>
+<td>2us</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>timeout_us</code></td>
+<td><code>APPLE_CLUSTER_SWITCH_TIMEOUT</code> = 100us</td>
+</tr>
+</tbody>
+</table>
+<p>Now we read the hardware register associated with this cpu cluster and
+keep polling until it&rsquo;s no longer busy. Then, we read the value into <code>reg</code>
+and if it&rsquo;s still busy after 100us, return with an error.</p>
+<pre><code class="language-c">	u64 reg;
 	if (readq_poll_timeout(cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE, reg,
 				 !(reg &amp; APPLE_CLUSTER_PSTATE_BUSY), 2,
 				 APPLE_CLUSTER_SWITCH_TIMEOUT)) {
 		dev_err(cluster-&gt;dev, &quot;timed out waiting for busy flag\n&quot;);
 		return -EIO;
 	}
-
-	// do some bitwise logic to set the hardware register to desired level
-	reg &amp;= ~(APPLE_CLUSTER_PSTATE_DESIRED1 | APPLE_CLUSTER_PSTATE_DESIRED2);
+</code></pre>
+<p>Do some bitwise logic to set the hardware register to desired level.</p>
+<pre><code class="language-c">	reg &amp;= ~(APPLE_CLUSTER_PSTATE_DESIRED1 | APPLE_CLUSTER_PSTATE_DESIRED2);
 	reg |= FIELD_PREP(APPLE_CLUSTER_PSTATE_DESIRED1, level);
 	reg |= FIELD_PREP(APPLE_CLUSTER_PSTATE_DESIRED2, level);
 	reg |= APPLE_CLUSTER_PSTATE_SET;
-
-	// write the register using hardware relaxed memory model
-	writeq_relaxed(reg, cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE);
-
-	// if the cluster has an associated power domain, modify it
-	// to reflect the new operating performance point
-	if (cluster-&gt;has_pd)
+</code></pre>
+<p>Write the register using hardware relaxed memory
+model, which default on modern devices and arm64 Apple Silicon.</p>
+<pre><code class="language-c">	writeq_relaxed(reg, cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE);
+</code></pre>
+<p>If the cluster has an associated power domain, modify it
+to reflect the new operating performance point.</p>
+<pre><code class="language-c">	if (cluster-&gt;has_pd)
 		dev_pm_genpd_set_performance_state(cluster-&gt;dev,
 							 dev_pm_opp_get_required_pstate(opp, 0));
 
