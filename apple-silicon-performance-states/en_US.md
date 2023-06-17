@@ -8,6 +8,10 @@ Here are some of the built-in levers you can pull:
 ## Clock speed controller
 
 This allows the kernel to speed up and slow down the CPUs.
+You can change the cpu frequency from userpsace using tools
+like cpupower on Linux.
+
+I decided to dive into the code and exlore how it's implemented!
 Here's the important code from the Asahi Linux kernel to
 set the cpu frequency, with annotations:
 
