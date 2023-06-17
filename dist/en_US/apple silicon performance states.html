@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="../public/tailwind.css" charset="utf-8">
+  <link rel="stylesheet" href="../public/post.css" charset="utf-8">
+  <title>apple silicon performance states - Bjorn Pagen</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RPHJQQDZY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RPHJQQDZY');
+  </script>
+</head>
+
+<body class="body-text_plex-serif">
+  <main>
+    <header>
+      <time datetime="2023-06-17 02:05:54Z">
+        June 17 2023
+      </time>
+      <topic>
+        apple silicon performance states
+      </topic>
+    </header>
+    <article>
+      <p>The Apple m1/m2 family of chips have built-in mechanisms
+to dynamically scale their battery usage. Doing this allows
+Apple Silicon devices to have speed when you want it,
+with the ability to <em>slow things down</em> to benefit battery usage.</p>
+<p>Here are some of the built-in levers you can pull:</p>
+<h2 id="clock-speed-controller">Clock speed controller</h2>
+<p>This allows the kernel to speed up and slow down the CPUs.
+Here&rsquo;s the important code from the Asahi Linux kernel to
+set the cpu frequency, with annotations:</p>
+<pre><code class="language-c">static int apple_cluster_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+					 unsigned long parent_rate)
+{
+  // apple_cluster_clk is hardware specific, unlike clk_hw, a generic
+  // implementation for clock rate logic across all platforms
+	struct apple_cluster_clk *cluster = to_apple_cluster_clk(hw);
+
+  // an opp is an &quot;operating performance point&quot;, not an &quot;operation&quot;
+  // a list of supported frequencies/voltages is already in the kernel
+  // here we fetch the lowest opp &lt;= the user supplied clock rate
+	struct dev_pm_opp *opp;
+	opp = dev_pm_opp_find_freq_floor(cluster-&gt;dev, &amp;rate);
+
+  // return early if there's an error
+	if (IS_ERR(opp))
+		return PTR_ERR(opp);
+
+  // the hardware doesn't understand linux internal data structures
+  // this translates the opp struct into an index understood by the
+  // hardware, like 0, 1, 2, etc... 
+	unsigned int level;
+	level = dev_pm_opp_get_level(opp);
+
+  // log work so far
+	dev_dbg(cluster-&gt;dev, &quot;set_rate: %ld -&gt; %d\n&quot;, rate, level);
+
+  // readq_poll_timeout reads a quad (64 bits) from memory, and keeps trying until timeout
+  // func sig: readq_poll_timeout(addr, val, cond, delay_us, timeout_us)
+  // addr = cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE
+  // val = reg
+  // cond = !(reg &amp; APPLE_CLUSTER_PSTATE_BUSY), ie cluster must not be busy, keep polling until it isn't
+  // delay_us = 2 microseconds
+  // timeout_us = APPLE_CLUSTER_SWITCH_TIMEOUT = 100 microseconds
+  //
+  // now we'll read the hardware register associated with this cpu cluster
+  // keep polling until it's no longer busy, and read the value into reg
+  // if it's still busy after 100us, return with an error
+	u64 reg;
+	if (readq_poll_timeout(cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE, reg,
+			       !(reg &amp; APPLE_CLUSTER_PSTATE_BUSY), 2,
+			       APPLE_CLUSTER_SWITCH_TIMEOUT)) {
+		dev_err(cluster-&gt;dev, &quot;timed out waiting for busy flag\n&quot;);
+		return -EIO;
+	}
+
+  // do some bitwise logic to set the hardware register to desired level
+	reg &amp;= ~(APPLE_CLUSTER_PSTATE_DESIRED1 | APPLE_CLUSTER_PSTATE_DESIRED2);
+	reg |= FIELD_PREP(APPLE_CLUSTER_PSTATE_DESIRED1, level);
+	reg |= FIELD_PREP(APPLE_CLUSTER_PSTATE_DESIRED2, level);
+	reg |= APPLE_CLUSTER_PSTATE_SET;
+
+  // write the register using hardware relaxed memory model
+	writeq_relaxed(reg, cluster-&gt;reg_base + APPLE_CLUSTER_PSTATE);
+
+  // if the cluster has an associated power domain, modify it
+  // to reflect the new operating performance point
+	if (cluster-&gt;has_pd)
+		dev_pm_genpd_set_performance_state(cluster-&gt;dev,
+						   dev_pm_opp_get_required_pstate(opp, 0));
+
+	return 0;
+}
+</code></pre>
+
+    </article>
+    <sig><a href="index.html">Bjorn Pagen</a></sig>
+  </main>
+</body>
+
+</html>
