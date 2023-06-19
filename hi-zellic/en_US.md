@@ -17,8 +17,8 @@ As your first sales hire, here's my gameplan for Zellic---
    auditing services, to make the job easier for future salespeople.
 
    Here's an example: at Magna we found that we used Telegram *a lot*
-   in communicating with prospects and clients. So, before baracuda came
-   along, I basically implemented baracuda using our existing Hubspot and
+   in communicating with prospects and clients. So, before Barracuda CRM came
+   along, I basically implemented Telegram history and followups into our existing Hubspot and
    Notion databases, using the Telegram and Slack APIs.
 
 2. In the same way you continually send marketing emails as an eCommerce brand,
