@@ -11,7 +11,7 @@ contributing kernel patches to Asahi.
 
 In the same vein, there's no use hiring any salespeople at Zellic until
 you first have efficient [sales automation](https://bjorn.llc) in place.
-It's going to be my job to setup all these tools first,
+It's important to setup all these tools first,
 allowing myself and the rest of the sales team to work at optimal capacity.
 
 As an early sales hire, here's my gameplan for Zellic---
