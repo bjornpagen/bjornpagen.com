@@ -39,11 +39,12 @@ As your first sales hire, here's my gameplan for Zellic---
    have to do, and the more time they
    can spend on what they do best---hopping on calls and selling.
 
-   This means---no logging activity, no prospecting. Contact logging
+   This means---no logging activity, no prospecting, no cold dialing. Contact logging
    should be done automatically by the CRM, and in case it can't be, we'll
    integrate it (ie. Telegram). Prospecting
    should be done by code and automated systems, with ability to add
-   any one-off leads that come up.
+   any one-off leads that come up. Cold calling (if used) should be done
+   by autodialers, and passed off to the salesperson when someone picks up.
 
 Just these three things alone should set Zellic up for success. With an
 in-demand product and a stellar reputation, all that's keeping you guys
