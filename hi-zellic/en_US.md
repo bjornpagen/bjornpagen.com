@@ -5,7 +5,7 @@ could trace memory accesses and dump them to be analyzed later.
 
 marcan spent a considerable amount of effort investing in good tools first.
 These tools continue to pay dividends, allowing the Asahi Linux
-reverse engineering effort to proceed extremely quickly. It's played a
+reverse engineering effort to proceed extremely quickly. Its played a
 core role in getting contributors with *zero* reversing experience
 contributing kernel patches to Asahi.
 
