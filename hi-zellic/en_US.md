@@ -34,8 +34,9 @@ As your first and most important sales hire, here's my gameplan for Zellic---
    to them as I can to them!
 
 
-3. I'll put a focus on total automation. The more the *sales system* does,
-   the less individuals salespeople have to do, and the more time they
+3. I'll put a focus on total automation (I'm a huge fan of Airtable).
+   The more the *sales system* does, the less individuals salespeople
+   have to do, and the more time they
    can spend on what they do best---hopping on calls and selling.
 
    This means---no logging activity, no prospecting. Contact logging
