@@ -2,13 +2,13 @@ marcan of the [Asahi Linux](https://asahilinux.org/about/) team spent months per
 bootloader, before even touching Linux. He even added functionality to chainload macOS in a hypervisor, so that he
 could trace reads and writes to memory and dump them to be analyzed later.
 
-These initial investments in infrastructure continues to pay divideds to the Asahi Linux team, allowing the Asahi Linux
+These initial investments in infrastructure continue to pay divideds to the Asahi Linux team, allowing the Asahi Linux
 reverse engineering effort to proceed at impressive speed.
 
 In the same vein, there's no use hiring any salespeople at Zellic until
 you first have efficient [sales automation](https://bjorn.llc) in place.
 
-As your first and most important sales hire, here's my gameplan for Zellic---
+As your first sales hire, here's my gameplan for Zellic---
 
 1. Have you ever used a CRM thinking "I wish we could track XYZ"?
    I'll customize whatever CRM you're currently using and make it scalable
@@ -19,7 +19,7 @@ As your first and most important sales hire, here's my gameplan for Zellic---
    Here's an example: at Magna we found that we used Telegram *a lot*
    in communicating with prospects and clients. So, before baracuda came
    along, I basically implemented baracuda using our existing Hubspot and
-   Notion databases, using the Telegram and Slack apis.
+   Notion databases, using the Telegram and Slack APIs.
 
 2. In the same way you continually send marketing emails as an eCommerce brand,
    B2B companies can benefit from keeping in contant touch with all of
@@ -28,7 +28,7 @@ As your first and most important sales hire, here's my gameplan for Zellic---
 
    In addition to a list of all your current and past clients,
    I'll throw in a list of 1.7k crypto founders
-   (which I created for Magna). I'll setup a mass email marketing
+   (which I scraped for Magna). I'll setup a mass email marketing
    campaign to convert them to
    calls. Then, I'll take the calls, and provide as much value
    to them as I can to them!
@@ -41,7 +41,7 @@ As your first and most important sales hire, here's my gameplan for Zellic---
 
    This means---no logging activity, no prospecting. Contact logging
    should be done automatically by the CRM, and in case it can't be, we'll
-   integrate it (ie. Telegram). The prospecting
+   integrate it (ie. Telegram). Prospecting
    should be done by code and automated systems, with ability to add
    any one-off leads that come up.
 
