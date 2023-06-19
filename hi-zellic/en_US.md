@@ -27,7 +27,7 @@ As your first sales hire, here's my gameplan for Zellic---
    unrealized income.
 
    In addition to a list of all your current and past clients,
-   I'll throw in a list of 1.7k crypto founders
+   I'll throw in a list of 6k+ crypto founders
    (which I scraped for Magna). I'll setup a mass email marketing
    campaign to convert them to
    calls. Then, I'll take the calls, and provide as much value
