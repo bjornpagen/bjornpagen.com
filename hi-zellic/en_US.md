@@ -8,7 +8,7 @@ reverse engineering effort to proceed at impressive speed.
 In the same vein, there's no use hiring any salespeople at Zellic until
 you first have efficient [sales automation](https://bjorn.llc) in place.
 
-As your first sales hire, here's my gameplan for Zellic---
+As an early sales hire, here's my gameplan for Zellic---
 
 1. Have you ever used a CRM thinking "I wish we could track XYZ"?
    I'll customize whatever CRM you're currently using and make it scalable
