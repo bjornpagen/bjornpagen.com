@@ -11,14 +11,21 @@
 ## Workout B
 
 1. TSC Seated Overhead Press
-2. TSC Chest Press
-3. TSC Strap Row
-4. TSC Lat Pulldown
-5. TSC Floor Crunch
-6. TSC Deadlift
-7. TSC Neck Extension
-8. TSC Neck Flexion
-9. TSC Grip
+2. TSC Lat Pulldown
+3. TSC Chest Press
+4. TSC Strap Row
+5. TSC Neck Extension
+6. TSC Neck Flexion
+7. TSC Grip
+
+## Full Body Workout
+
+1. Chin Up
+2. Dip
+3. Squat
+4. Heel Raise
+5. Neck Extension
+6. Neck Flexion
 
 ## Intake Goal
 
