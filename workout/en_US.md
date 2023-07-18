@@ -7,14 +7,14 @@
 5. TSC Squat
 6. TSC Abduction
 7. TSC Adduction
-8. TSC Calf Raise
+8. TSC Heel Raise
 
 ## Workout B
 
 1. TSC Seated Overhead Press
 2. TSC Chest Press
 3. TSC Strap Row
-4. TSC Trunk Flexion
+4. TSC Floor Crunch
 5. TSC Deadlift
 6. TSC Neck Extension
 7. TSC Neck Flexion
