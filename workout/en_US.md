@@ -22,10 +22,13 @@
 
 1. Chin Up
 2. Dip
-3. Squat
-4. Heel Raise
-5. Neck Extension
-6. Neck Flexion
+3. Row
+4. Leg Press
+5. Leg Extension
+6. Leg Curl
+7. Heel Raise
+8. Neck Extension
+9. Neck Flexion
 
 ## Intake Goal
 
